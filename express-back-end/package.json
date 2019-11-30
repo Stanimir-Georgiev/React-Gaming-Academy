@@ -1,0 +1,33 @@
+{
+  "name": "express-back-end",
+  "version": "1.0.0",
+  "description": "back-end",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Stanimir-Georgiev/React-Gaming-Academy.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Stanimir-Georgiev/React-Gaming-Academy/issues"
+  },
+  "homepage": "https://github.com/Stanimir-Georgiev/React-Gaming-Academy#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.3.2",
+    "mongoose": "^5.7.3",
+    "uniqid": "^5.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.2"
+  }
+}
