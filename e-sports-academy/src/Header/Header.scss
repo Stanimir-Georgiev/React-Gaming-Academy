@@ -1,0 +1,33 @@
+.site-header {
+    
+    background: var(--main-background-color);
+    border-bottom: 5px solid var(--main-blue-color);
+    .header-wrapper {
+      padding: 0 4em;
+      display: flex;
+      align-items: center;
+    }
+  }
+  
+  .header-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    a {
+      padding: 0;
+      margin: 0;
+      display: block;
+    }
+    img {
+      width: 250px;
+      height: 130px;
+      display: block;
+      opacity: 0;
+      transform: translateY(10em);
+      transition: opacity 1s ease-in-out 0.8s, transform 1s ease-out 0.8s;
+    }
+  }
+  
+  body.loaded .header-wrapper img {
+    opacity: 1;
+    transform: translateY(0);
+  }

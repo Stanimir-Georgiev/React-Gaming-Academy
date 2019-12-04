@@ -1,0 +1,85 @@
+.site-banner {
+    display: flex;
+    flex-wrap: wrap;
+    background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url('../kv.jpg') no-repeat center center;
+    background-size: cover;
+    .addvert {
+     width: 60%;
+     display: flex;
+     justify-content: center;
+     flex-wrap: wrap;
+     h2, h3 {
+      text-align: center;
+      padding-top: 0.5em;
+      width: 100%;
+      opacity: 0;
+      animation-name: banner;
+      animation-duration: 2s;
+      animation-fill-mode: forwards;
+      animation-delay: 1.5s;
+      
+     }
+     h2 {
+      color: var(--main-gold-color);
+      &:last-child {
+        padding-bottom: 1em;
+      }
+     }
+     h3 {
+       color: white;
+       &:first-child {
+         padding-top: 3em;
+       };
+     }
+   }
+   .button-wrapper {
+    padding-top: 4em;
+    padding-bottom: 6em;
+    width: 100%;
+    text-align: center;
+
+    
+     .button {
+      font-size: 1.5em;
+      padding: 0.5em 1em;
+      border: 3px solid var(--main-blue-color);
+      color: var(--main-gold-color);
+      border-radius: 0.4em;
+      background: rgba(7, 7, 7, 0.5);
+      animation: button 3s ease-in-out 2.5s forwards;
+      opacity: 0;
+      &:hover {
+        border-color: var(--main-gold-color);
+        color: white
+      }
+     }
+   }
+}
+.loaded .button {
+  opacity: 1;
+}
+@keyframes banner {
+  0% {
+    opacity: 0.5;
+    transform: translateX(10em)
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-5em)
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0)
+  }
+}
+@keyframes button {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5
+  }
+  100% {
+    opacity: 1
+  }
+}

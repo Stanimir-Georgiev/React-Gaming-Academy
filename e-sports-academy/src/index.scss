@@ -1,13 +1,50 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css?family=Lacquer&display=swap');
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&display=swap');
+
+:root {
+  --main-blue-color: #6598d1;
+  --main-gold-color: #e68a00;
+  --main-grey-color: #797979;
+  --color-link-default: #0A0;
+  --main-background-color: #070707;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+*, *:before, *:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
 }
+
+html {
+    box-sizing: border-box;
+    font: var(--font-size-body, 20px)/1.5 'PT Sans', sans-serif;
+}
+
+body, table, form, select, option, input, textarea {
+    font: inherit;
+}
+body {
+    background: var(--main-background-color);
+}
+
+.site-title,
+h1, h2, h3, h4, h5, h6 {
+    font-size: 1em;
+    margin-bottom: 0.5em;
+    font-weight: normal;
+    font-family: 'Lacquer', sans-serif;
+}
+
+h1 { font-size: 2.6em; }
+h2 { font-size: 2.0em; }
+h3 { font-size: 1.8em; }
+h4 { font-size: 1.4em; }
+h5 { font-size: 1.2em; }
+h6 { font-size: 1.0em; }
+
+a {
+    text-decoration: none;
+    color: var(--color-link-default, #0A0);
+    font-family: 'Lacquer', sans-serif;
+}
+
