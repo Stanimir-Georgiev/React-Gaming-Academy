@@ -1,18 +1,19 @@
 import React from 'react';
 import './Navigation.scss';
+import { Link } from 'react-router-dom';
 
 const Navigation = () => {
     return (
           <nav className="site-nav">
               <ul>
                   <li>
-                      <a href="#">Login</a>
+                      <Link to="/login">Login</Link>
                   </li>
                   <li>
-                      <a href="#">Register</a>
+                      <Link to="/register">Register</Link>
                   </li>
                   <li>
-                      <a href="#">Logout</a>
+                      <Link to="logout">Logout</Link>
                   </li>
               </ul>
           </nav>

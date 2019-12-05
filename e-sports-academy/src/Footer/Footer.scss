@@ -14,17 +14,18 @@
     }
     .footer-wrapper {
         display: flex;
-        max-width: 1100px;
-        margin: 0 auto;
+        max-width: 1200px;
+        margin: 2em auto;
         justify-content: space-between;
         align-items: flex-start;
+        padding: 0 4em;
     }
     li {
         list-style: none outside;
         opacity: 0;
         transform: translateY(-1em);
         transition: opacity 0.3s ease-in-out, transform 0.3s ease-out; 
-        @for $i from 1 to 14 {
+        @for $i from 1 to 6 {
             &:nth-child(#{$i}) { transition-delay: $i * 0.20s; }
           }
         a {
@@ -45,7 +46,6 @@
     }
 }
 .logo {
-    
     a {
         img {
             width: 250px;
@@ -70,11 +70,11 @@
     }
 }
 .addition {
-    margin-top: 3em;
     opacity: 0;
     transform: translateX(-1em);
     transition: 0.4s transform ease-in, opacity 0.4s ease-out;
     transition-delay: 1.5s;
+    margin-top: 4em;
     a {
         text-align: center;
         color: var(--main-grey-color);
@@ -87,7 +87,7 @@
 }
 
 .footer-games {
-   margin-top: 2em;
+
 }
 .animate {
     li {

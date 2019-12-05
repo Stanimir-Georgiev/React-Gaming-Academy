@@ -23,11 +23,12 @@
       display: block;
       opacity: 0;
       transform: translateY(10em);
-      transition: opacity 1s ease-in-out 0.8s, transform 1s ease-out 0.8s;
+      animation: logo ease-in-out 0.8s forwards;
     }
   }
-  
-  body.loaded .header-wrapper img {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  @keyframes logo {
+    100% {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+   }

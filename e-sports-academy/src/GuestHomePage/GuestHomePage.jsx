@@ -1,9 +1,15 @@
 import React from 'react';
 import './GuestHomePage.scss';
 import Header from '../Header/Header';
-import Footer from '../Footer/Footer'
+import Footer from '../Footer/Footer';
+import FooterScript from '../scripts/footer-script';
 
 const GuestHomePage = () => {
+
+    React.useEffect(() => {
+        FooterScript()
+    }, [])
+
     return (
         <React.Fragment>
             <Header />

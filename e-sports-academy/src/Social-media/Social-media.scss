@@ -5,7 +5,7 @@
         margin: 0.5em;
         opacity: 0;
         transform: translate(-2em, -4em);
-        transition: opacity 0.5s ease-in-out, transform 0.5s ease-out;
+        animation: social 0.5s forwards;
         &:nth-child(2) {
           transition-delay: 0.1s;
         }
@@ -24,19 +24,11 @@
         font-size: 1.2em;
     }
 }
-body.loaded .social-media li {
+
+
+@keyframes social {
+  100% {
     opacity: 1;
     transform: translate(0, 0);
   }
-
-@keyframes transition {
-    0% {
-      opacity: 0;
-      transform: translate(-4em, -2em);
-    }
-  
-    100% {
-      opacity: 1;
-      transform: translate(-50%, 0);
-    }
-  }
+}
