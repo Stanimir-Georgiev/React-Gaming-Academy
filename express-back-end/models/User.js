@@ -14,27 +14,26 @@ const userSchema = new Schema({
        minlength: [3, "Username should be at least 3 characters"],
        maxlength: [15, "Username should not be more than 15 characters"]
     },
-
     password: {
         type: mongoose.SchemaTypes.String,
         required: [true, "Password is required!"],
         minlength: [5, "Password should be at least 5 characters"]
     },
-    email: {
-        type: mongoose.SchemaTypes.String,
-        required: [true, "Email is required!"]
-    },
     firstName: {
         type: mongoose.SchemaTypes.String,
-        default: null,
+        default: "",
     },
     lastName: {
         type: mongoose.SchemaTypes.String,
-        default: null,
+        default: "",
     },
     credits: {
         type: mongoose.SchemaTypes.Number,
         default: 0,
+    },
+    adminLevel: {
+        type: mongoose.SchemaTypes.Number,
+        default: 0
     },
     enrolledCourses: [
         {

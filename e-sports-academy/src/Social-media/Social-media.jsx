@@ -1,29 +1,29 @@
 import React from 'react';
-import './Social-media.scss'
-
+import './Social-media.scss';
+import { Link } from 'react-router-dom'
 
 const SocialMedia = () => {
     return (
         <ul className="social-media">
             <li>
-                <a href="#">
+                <Link to="#">
                     <i className="fa fa-youtube-play"></i>
-                </a>
+                </Link>
             </li>
             <li>
-                <a href="#">
+                <Link to="#">
                     <i className="fa fa-instagram"></i>
-                </a>
+                </Link>
             </li>
             <li>
-                <a href="#">
+                <Link to="#">
                     <i className="fa fa-twitter"></i>
-                </a>
+                </Link>
             </li>
             <li>
-                <a href="#">
+                <Link to="#">
                     <i className="fa fa-facebook"></i>
-                </a>
+                </Link>
             </li>
         </ul>
     )

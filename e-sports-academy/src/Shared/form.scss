@@ -42,6 +42,7 @@
         form {
             width: 100%;
             text-align: center;
+            position: relative;
 
             a {
                 width: 100%;
@@ -65,11 +66,23 @@
                     border-color: var(--main-blue-color)
                 }
             }
+            label {
+                margin: 2em 0;
+                display: block;
+                position: relative;
+                span {
+                    color: red;
+                    position: absolute;
+                    left: 20%;
+                    font-size: 0.8em;
+                    margin-top: 0.4em;
+                }
+            }
             p {
                 padding: 0.4em 0;
                 background: rgba(45, 44, 42, 0.9);
                 max-width: 80%;
-                margin: 2em auto;
+                margin: 0 auto;
                 input {
                     background: rgba(30, 29, 27, 0.7);
                     outline: none;
@@ -84,6 +97,16 @@
                         color: white
                     }
                 }
+                .error {
+                    border: 1px solid red;
+                    &::placeholder {
+                        color: red;
+                    }
+                    &:focus {
+                        border: 1px solid red;
+                    }
+                }
+                
                 i {
                     margin-left: 0.4em;
                     margin-right: 0.8em;
@@ -92,4 +115,13 @@
             }
         }
     }
+    .server-error {
+        color: red;
+        position: absolute;
+        top: 0;
+        font-size: 1.2em;
+        left: 25%;
+        
+    }
+    
 }

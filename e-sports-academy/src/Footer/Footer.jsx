@@ -6,6 +6,7 @@ import tft from '../images/tft.png'
 import fortnite from '../images/fortnite.png'
 import cs from '../images/cs.png'
 import hs from '../images/hs.png'
+import { Link } from 'react-router-dom'
 
 
 
@@ -14,47 +15,47 @@ const Footer = () => {
         <footer className="site-footer">
             <div className="footer-wrapper">
                 <section className="logo">
-                    <a href="/"><img src={logo} /></a>
+                    <Link to="/"><img src={logo} alt="logo"/></Link>
                     <h5>All rights reserved &copy;</h5>
                 </section>
                 <div className="addition">
-                    <a href="#">Terms and Conditions</a>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Customer Support</a>
+                    <Link to="#">Terms and Conditions</Link>
+                    <Link to="#">Privacy Policy</Link>
+                    <Link to="#">Customer Support</Link>
                 </div>
                 <section className="footer-games">
                     <h5>Games</h5>
                     <nav className="game-nav">
                         <ul>
                             <li>
-                                <a href="#">
+                                <Link to="#">
                                     <img src={league} alt="league" />
                                     <h6>League Of Legends</h6>
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a href="#">
+                                <Link to="#">
                                     <img src={tft} alt="tft" />
                                     <h6>Teamfight Tactitcs</h6>
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a href="#">
+                                <Link to="#">
                                     <img src={fortnite} alt="fortnite" />
                                     <h6>Fortnite</h6>
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a href="#">
+                                <Link to="#">
                                     <img src={cs} alt="cs" />
                                     <h6>Counter Strike: GO</h6>
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a href="#">
+                                <Link to="#">
                                     <img src={hs} alt="hs" />
                                     <h6>Hearthstone</h6>
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </nav>

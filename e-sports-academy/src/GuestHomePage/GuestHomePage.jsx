@@ -3,6 +3,7 @@ import './GuestHomePage.scss';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import FooterScript from '../scripts/footer-script';
+import { Link } from 'react-router-dom'
 
 const GuestHomePage = () => {
 
@@ -20,7 +21,7 @@ const GuestHomePage = () => {
                     <h3>Master all games with our courses</h3>
                     <h2>Learn from The Best!</h2>
                     <div className="button-wrapper">
-                        <a href="#" className="button">Get Started!</a>
+                        <Link to="/register" className="button">Get Started!</Link>
                     </div>
                 </div>
             </section>
