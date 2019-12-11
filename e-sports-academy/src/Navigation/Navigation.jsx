@@ -1,24 +1,38 @@
 import React from 'react';
 import './Navigation.scss';
 import { Link } from 'react-router-dom';
-import  { StoreContext } from "../Store/Store";
+import { StoreContext } from "../Store/Store";
 
 const Navigation = () => {
     const { state } = React.useContext(StoreContext);
     const isLogged = !!state.user;
     return (
         <nav className="site-nav">
-            <ul>
+          {!isLogged &&  <ul>
                 <li>
-                    {!isLogged && < Link to="/login">Login</Link>}
+                    < Link to="/login">Login</Link>
+                </li>
+
+
+                <li>
+                    < Link to="/register">Register</Link>
+                </li>
+            </ul>}
+           {isLogged && <ul>
+                <li>
+                    < Link to="/">Dashboard</Link>
+                </li>  
+                <li>
+                    < Link to="/courses">Courses</Link>
+                </li>  
+                <li>
+                    < Link to="/logout">Logout</Link>
                 </li>
                 <li>
-                    {!isLogged && < Link to="/register">Register</Link>}
+                    < Link to="/profile">{state.user.username}</Link>
                 </li>
-                <li>
-                {isLogged && < Link to="/logout">Logout</Link>}
-                </li>
-            </ul>
+               
+            </ul>}
         </nav >
     )
 }

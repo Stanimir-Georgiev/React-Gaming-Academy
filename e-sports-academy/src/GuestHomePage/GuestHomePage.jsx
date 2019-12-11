@@ -2,15 +2,8 @@ import React from 'react';
 import './GuestHomePage.scss';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
-import FooterScript from '../scripts/footer-script';
 import { Link } from 'react-router-dom'
-
 const GuestHomePage = () => {
-
-    React.useEffect(() => {
-        FooterScript()
-    }, [])
-
     return (
         <React.Fragment>
             <Header />

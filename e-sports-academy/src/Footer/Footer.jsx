@@ -1,21 +1,24 @@
 import React from 'react';
 import './Footer.scss';
 import logo from '../logo.png'
+import { Link } from 'react-router-dom';
 import league from '../images/league.png';
 import tft from '../images/tft.png'
 import fortnite from '../images/fortnite.png'
 import cs from '../images/cs.png'
-import hs from '../images/hs.png'
-import { Link } from 'react-router-dom'
-
+import hs from '../images/hs.png';
+import FooterScript from '../scripts/footer-script';
 
 
 const Footer = () => {
+    React.useEffect(() => {
+        FooterScript()
+    }, [])
     return (
         <footer className="site-footer">
             <div className="footer-wrapper">
                 <section className="logo">
-                    <Link to="/"><img src={logo} alt="logo"/></Link>
+                    <Link to="/"><img src={logo} alt="logo" /></Link>
                     <h5>All rights reserved &copy;</h5>
                 </section>
                 <div className="addition">

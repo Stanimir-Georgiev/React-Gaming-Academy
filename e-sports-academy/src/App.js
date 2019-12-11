@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.scss';
 import GuestHomePage from './GuestHomePage/GuestHomePage';
+import LoggedInHomePage from './LoggedInHomePage/LoggedInHomePage'
 import Register from './Register/Register';
 import Login from './Login/Login';
 import Logout from './Logout/Logout';
@@ -12,6 +13,7 @@ import {
 } from "react-router-dom";
 import Store, { StoreContext } from "./Store/Store";
 import { loginSuccess, registerSuccess } from "./Store/actions";
+
 
 const Auth = ({ children }) => {
   const { dispatch } = React.useContext(StoreContext);
@@ -48,15 +50,13 @@ function App() {
               ) :
                 (<div className="site">
                   <Switch>
-                    <Route path="/" exact>
-                      <GuestHomePage isLogged={isLogged}/>
+                    <Route path="/" exact render={!isLogged ? () => <GuestHomePage /> : () => <LoggedInHomePage />}>
                     </Route>
                     <Route path="/register" exact render={!isLogged ? () => <Register /> : () => <Redirect to="/" />}>
                     </Route>
                     <Route path="/login" exact render={!isLogged ? () => <Login /> : () => <Redirect to="/" />}>
                     </Route>
                     <Route path="/logout" exact render={isLogged ? () => <Logout /> : () => <Redirect to="/" />}>
-                      
                     </Route>
                     <Route path='*'>
                       <h2>404</h2>

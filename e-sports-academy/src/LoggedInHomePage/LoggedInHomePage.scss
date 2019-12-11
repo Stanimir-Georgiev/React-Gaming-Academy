@@ -1,0 +1,67 @@
+.logged-home {
+    position: relative;
+    background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url('../images/loggedBg.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 2em;
+    aside {
+        display: flex;
+    }
+    main {
+
+    }
+    .game-nav {
+        width: 70%;
+        ul {
+            display: flex;
+        }
+       li {
+           list-style: none outside;
+           padding: 0.5em 0.7em;
+           background: var(--main-background-color);
+           border-radius: 50%;
+           margin-right: 0.3em;
+           &:hover {
+               background:var(--main-blue-color);
+           }
+       }
+        img {
+            width: 35px;
+            height: 35px;
+        }
+    }
+    .credits {
+        padding: 1em 2em;
+        text-align: center;
+        border: 2px solid var(--main-gold-color);
+        border-radius: 1em;
+
+        
+        h2 {
+            color: var(--main-gold-color);
+        }
+        p {
+            color: var(--main-blue-color);
+            font-size: 2em;
+        }
+    }
+    .dashoard {
+        margin: 0 auto;
+        max-width: 1500px;
+        
+        h2 {
+            color: var(--main-blue-color);
+            text-align: center;
+            font-size: 3em;
+        }
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 auto;
+
+        }
+        li {
+            list-style: none outside;
+            background: var(--main-background-color);
+        }
+    }
+}
