@@ -1,10 +1,13 @@
 import React from 'react';
 import './Course.scss';
+import { Link } from 'react-router-dom';
 
-const Course = ({ imgUrl, name, totalVideos, difficulty }) => {
+const Course = ({ imgUrl, name, totalVideos, difficulty, id }) => {
     console.log(imgUrl)
+    const path = `/course/details/${id}`
     return (
         <li className="course">
+            <Link to={path}>
             <div className="image">
                 <img src={imgUrl} alt="courseImage" />
             </div>
@@ -20,6 +23,7 @@ const Course = ({ imgUrl, name, totalVideos, difficulty }) => {
                 </p>
                 <p>Difficulty: {difficulty}</p>
             </div>
+            </Link>
         </li>
     )
 }

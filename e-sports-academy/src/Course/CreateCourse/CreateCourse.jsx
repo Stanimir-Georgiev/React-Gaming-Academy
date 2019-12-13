@@ -18,6 +18,8 @@ const validations = {
         .required('Estimated time is required!'),
     imgUrl: yup.string('Image URL should be a string!')
         .required('Image Url is required!'),
+    description: yup.string('Description should be a string!')
+        .required('Description is required!')
 }
 
 const schema = yup.object().shape(validations);
@@ -32,6 +34,7 @@ const CreateCourse = () => {
     const gameFormControl = useFormControl('LeagueOfLegends', validations.game);
     const estimatedTimeFormControl = useFormControl('', validations.estimatedTime);
     const imgUrlFormControl = useFormControl('', validations.imgUrl);
+    const descriptionFormControl = useFormControl('', validations.description);
 
     const [serverError, setServerError] = React.useState(undefined)
 
@@ -43,7 +46,8 @@ const CreateCourse = () => {
             difficulty: difficultyFormControl.value,
             game: gameFormControl.value,
             estimatedTime: estimatedTimeFormControl.value,
-            imgUrl: imgUrlFormControl.value
+            imgUrl: imgUrlFormControl.value,
+            description: descriptionFormControl.value
         }).then(data => {
             courseService.createCourse(data).then(() => {
                 history.push('/')
@@ -56,14 +60,16 @@ const CreateCourse = () => {
             if (errors.game) { gameFormControl.setErrors(errors.game); }
             if (errors.estimatedTime) { estimatedTimeFormControl.setErrors(errors.estimatedTime) }
             if (errors.imgUrl) { imgUrlFormControl.setErrors(errors.imgUrl) }
+            if (errors.description) { descriptionFormControl.setErrors(errors.description) }
         })
-    }, [nameFormControl, difficultyFormControl, gameFormControl, estimatedTimeFormControl, imgUrlFormControl]);
+    }, [nameFormControl, difficultyFormControl, gameFormControl, estimatedTimeFormControl, imgUrlFormControl, descriptionFormControl]);
 
     const firstNameError = nameFormControl.errors && nameFormControl.errors[0];
     const firstDifficultyError = difficultyFormControl.errors && difficultyFormControl.errors[0];
     const firstGameError = gameFormControl.errors && gameFormControl.errors[0];
     const firstEstimatedTimeError = estimatedTimeFormControl.errors && estimatedTimeFormControl.errors[0];
     const firstImgUrlError = imgUrlFormControl.errors && imgUrlFormControl.errors[0]
+    const firstDescriptionError = descriptionFormControl.errors && descriptionFormControl.errors[0]
     return (
         <React.Fragment>
             <Header />
@@ -104,9 +110,13 @@ const CreateCourse = () => {
                             <label htmlFor="imgUrl">Image URL</label>
                             <input id="imgUrl" type="text" onChange={imgUrlFormControl.changeHandler} />
                         </div>
+                        <div>
+                            <label htmlFor="description">Description</label>
+                            <textarea id="description" type="text" rows="3" onChange={descriptionFormControl.changeHandler} />
+                        </div>
                         <button onClick={handleSubmit}>Create course</button>
                     </form>
-                    { (firstNameError || firstGameError || firstDifficultyError || firstEstimatedTimeError || firstImgUrlError) &&
+                    {(firstNameError || firstGameError || firstDifficultyError || firstEstimatedTimeError || firstImgUrlError || firstDescriptionError) &&
                         <div className="error-div">
                             <p>Please fill the form</p>
                         </div>

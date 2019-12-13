@@ -2,7 +2,10 @@ const controllers = require('../controllers/');
 const router = require('express').Router();
 const { auth } = require('../utils');
 
-router.get('/', controllers.course.get);
+router.get('/getAll', controllers.course.get.getAll);
+
+router.get('/getOne/:id', controllers.course.get.getOne);
+
 
 router.post('/', auth(), controllers.course.post);
 
