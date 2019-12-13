@@ -24,14 +24,7 @@ const LoggedInHomePage = () => {
                     <div className="dashoard">
                         <h2>My courses</h2>
                         <ul>
-                            <Course />
-                            <Course />
-                            <Course />
-                            <Course />
-                            <Course />
-                            <Course />
-
-
+                          
                         </ul>
                     </div>
                 </main>

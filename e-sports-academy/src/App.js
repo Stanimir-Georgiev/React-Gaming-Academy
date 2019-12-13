@@ -7,6 +7,7 @@ import Register from './Register/Register';
 import Login from './Login/Login';
 import Logout from './Logout/Logout';
 import Profile from './Profile/Profile';
+import Courses from './Course/Courses/Courses'
 import {
   BrowserRouter as Router,
   Switch,
@@ -64,6 +65,8 @@ function App() {
                     <Route path="/profile" exact render={isLogged ? () => <Profile /> : () => <Redirect to="/login" />}>
                     </Route>
                     <Route path="/createCourse" exact render={isLogged && state.user.isAdmin ? () => <CreateCourse /> : () => <Redirect to="/" />}>
+                    </Route>
+                    <Route path="/courses" exact render={isLogged ? () => <Courses /> : () => <Redirect to="/login" />}>
                     </Route>
                     <Route path='*'>
                       <h2>404</h2>

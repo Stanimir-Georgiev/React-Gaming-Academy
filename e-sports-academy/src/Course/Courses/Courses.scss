@@ -1,0 +1,13 @@
+.course-section {
+    width: 1400px;
+    margin: 0 auto;
+}
+.inner-course {
+    padding: 2em 4em;
+    margin: 4em 8em;
+    border: 2px solid white;
+    border-radius: 3em;
+    h2 {
+        color: var(--main-gold-color);
+    }
+}
