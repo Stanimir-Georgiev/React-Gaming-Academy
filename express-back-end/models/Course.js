@@ -21,6 +21,9 @@ const courseSchema = new Schema({
         type: mongoose.SchemaTypes.String,
         default: "Easy"
     },
+    imgUrl: {
+        type: mongoose.SchemaTypes.String
+    },
     rating: {
         type: mongoose.SchemaTypes.Number,
         default: 0
@@ -37,10 +40,6 @@ const courseSchema = new Schema({
     game: {
         type: mongoose.SchemaTypes.String
     },
-    totalEntrolledUsers: {
-        type: mongoose.SchemaTypes.Number,
-        default: 0
-    }
     
 })
 

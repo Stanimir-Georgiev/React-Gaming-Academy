@@ -15,6 +15,7 @@ import {
 } from "react-router-dom";
 import Store, { StoreContext } from "./Store/Store";
 import { loginSuccess, registerSuccess, updateSuccess} from "./Store/actions";
+import CreateCourse from './Course/CreateCourse/CreateCourse';
 
 
 const Auth = ({ children }) => {
@@ -61,6 +62,8 @@ function App() {
                     <Route path="/logout" exact render={isLogged ? () => <Logout /> : () => <Redirect to="/" />}>
                     </Route>
                     <Route path="/profile" exact render={isLogged ? () => <Profile /> : () => <Redirect to="/login" />}>
+                    </Route>
+                    <Route path="/createCourse" exact render={isLogged && state.user.isAdmin ? () => <CreateCourse /> : () => <Redirect to="/" />}>
                     </Route>
                     <Route path='*'>
                       <h2>404</h2>

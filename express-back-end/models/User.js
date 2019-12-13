@@ -39,9 +39,9 @@ const userSchema = new Schema({
         type: mongoose.SchemaTypes.String,
         default: ''
     },
-    adminLevel: {
-        type: mongoose.SchemaTypes.Number,
-        default: 0
+    isAdmin: {
+        type: mongoose.SchemaTypes.Boolean,
+        default: false
     },
     enrolledCourses: [
         {

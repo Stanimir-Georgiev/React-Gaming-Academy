@@ -24,9 +24,14 @@ const Navigation = () => {
                     <li>
                         < Link to="/courses">Courses</Link>
                     </li>
+                    {state.user.isAdmin &&
+                        <li>
+                            < Link to="/createCourse">Create Course</Link>
+                        </li>
+                    }
                     <li>
                         < Link to="/logout">Logout</Link>
-                    </li>
+                    </li>}
                 </ul>
                 < Link to="/profile">
                     <img src={state.user.imgUrl} alt="avatar" />
