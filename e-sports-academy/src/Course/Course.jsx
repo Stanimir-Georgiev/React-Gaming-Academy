@@ -9,7 +9,7 @@ const Course = () => {
                 <img src="https://i.pinimg.com/474x/2b/f4/c6/2bf4c601c4467365a802ec844846e907--legends-tips-and-tricks.jpg" alt="adc-image" />
             </div>
             <div className="information">
-                <h5>ADC Essentials</h5>
+                <h6>ADC Essentials</h6>
                 <p>22 Videos</p>
                 <p>
                 <i className="fa fa-star"></i>

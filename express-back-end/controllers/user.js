@@ -52,11 +52,11 @@ module.exports = {
   },
 
   put: (req, res, next) => {
-    const id = req.params.id;
-    const { username, password } = req.body;
-    models.User.update({ _id: id }, { username, password })
-      .then((updatedUser) => res.send(updatedUser))
-      .catch(next)
+    const { firstName, lastName, description, _id, ready, imgUrl} = req.body;
+    console.log(firstName)
+    models.User.findOneAndUpdate({_id}, {firstName, lastName, description, ready, imgUrl}, {new:true})
+      .then((updatedUser) => res.send(updatedUser)
+      ).catch(next)
   },
 
   delete: (req, res, next) => {

@@ -1,0 +1,92 @@
+.profile {
+    color: red;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 4em;
+}
+.personal-details {
+    border: 2px solid white;
+    padding: 2em 4em;
+    border-radius: 3em;
+
+    form {
+        width: 40%;
+        display: inline-block;
+    }
+
+    h4 {
+        margin-bottom: 1em;
+        color: var(--main-gold-color);
+    }
+    div {
+        margin-bottom: 1em;
+        position: relative;
+    }
+    label {
+        display: block;
+        color: var(--main-blue-color);
+    }
+    input {
+        width: 90%;
+        padding: 0.2em 0.5em;
+        color: var(--main-background-color);
+        border-radius: 0.2em;
+        outline: none;
+        border: 2px solid var(--main-blue-color);
+        &:focus {
+            border: 2px solid var(--main-gold-color);
+        }
+    }
+    textarea {
+        padding: 0.2em 0.5em;
+        width: 90%;
+        border: 2px solid var(--main-blue-color);
+        outline: none;
+        &:focus {
+            border: 2px solid var(--main-gold-color);
+        }
+    }
+    button {
+        padding: 1em 2em;
+        background: var(--main-blue-color);
+        color: white;
+        margin-bottom: 1em;
+        font-weight: bold;
+        border: 2px solid var(--main-blue-color);
+        cursor: pointer;
+        &:hover {
+            background: white;
+            color: var(--main-blue-color);
+            border-color: var(--main-blue-color)
+        }
+    }
+    .error {
+        border: 2px solid red;
+        &::placeholder {
+            color: red;
+        }
+        &:focus {
+            border: 2px solid red;
+        }
+    }
+    .avatar {
+        width: 40%;
+        display: inline-block;
+        h6 {
+            color: var(--main-gold-color);
+        }
+        img {
+            display: block;
+            padding: 1em;
+            margin: 1em 2em;
+            border: 2px solid white;
+            border-radius: 50%;
+            cursor: pointer;
+            width: 220px;
+            height: 220px;
+        }
+        h6 {
+            text-align: center;
+        }
+    }
+}

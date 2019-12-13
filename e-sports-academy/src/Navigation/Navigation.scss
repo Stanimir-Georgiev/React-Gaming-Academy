@@ -1,6 +1,10 @@
 .site-nav {
     margin-left: auto;
     display: flex;
+    div {
+      display: flex;
+      align-items: center;
+    }
     ul {
       display: flex;
       margin: 0;
@@ -28,6 +32,9 @@
           color: var(--main-gold-color);
         }
       }
+      &:nth-child(4) {
+        padding: 0 0.5em;
+      }
     }
     ul li:hover {
         animation: border 5s ease-in infinite, lists ease-in-out 0.5s forwards;
@@ -41,6 +48,12 @@
     a {
         color: var(--main-blue-color);
         font-weight: bolder;
+    }
+    img {
+      width: 50px;
+      height: 50px;
+      display: block;
+      border-radius: 50%;
     }
   }
    

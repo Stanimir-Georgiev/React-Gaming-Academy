@@ -1,10 +1,12 @@
 import React from 'react';
 import './App.scss';
+import './Shared/spinner.scss'
 import GuestHomePage from './GuestHomePage/GuestHomePage';
 import LoggedInHomePage from './LoggedInHomePage/LoggedInHomePage'
 import Register from './Register/Register';
 import Login from './Login/Login';
 import Logout from './Logout/Logout';
+import Profile from './Profile/Profile';
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,11 +14,11 @@ import {
   Redirect
 } from "react-router-dom";
 import Store, { StoreContext } from "./Store/Store";
-import { loginSuccess, registerSuccess } from "./Store/actions";
+import { loginSuccess, registerSuccess, updateSuccess} from "./Store/actions";
 
 
 const Auth = ({ children }) => {
-  const { dispatch } = React.useContext(StoreContext);
+  const { dispatch, state } = React.useContext(StoreContext);
   React.useEffect(() => {
     fetch("http://localhost:9999/auth", { credentials: "include" })
       .then(res =>
@@ -24,10 +26,11 @@ const Auth = ({ children }) => {
           ? res.json()
           : res.text().then(text => Promise.reject(text))
       )
-      .then((user) => {dispatch(loginSuccess(user)); dispatch(registerSuccess(user));})
+      .then((user) => {dispatch(loginSuccess(user)); dispatch(registerSuccess(user)); dispatch(updateSuccess(user))})
       .catch(() => {
         dispatch(loginSuccess(null)); 
-        dispatch(registerSuccess(null))
+        dispatch(registerSuccess(null));
+        dispatch(updateSuccess(null))
       });
   }, []);
 
@@ -44,19 +47,20 @@ function App() {
             {({ state }) => {
               const { user } = state;
               const isLogged = !!state.user;
-              console.log(isLogged)
               return user === undefined ? (
-                <div>Loading...</div>
+                <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
               ) :
                 (<div className="site">
                   <Switch>
                     <Route path="/" exact render={!isLogged ? () => <GuestHomePage /> : () => <LoggedInHomePage />}>
                     </Route>
-                    <Route path="/register" exact render={!isLogged ? () => <Register /> : () => <Redirect to="/" />}>
+                    <Route path="/register" exact render={!isLogged ? () => <Register /> : () => <Redirect to="/profile" />}>
                     </Route>
                     <Route path="/login" exact render={!isLogged ? () => <Login /> : () => <Redirect to="/" />}>
                     </Route>
                     <Route path="/logout" exact render={isLogged ? () => <Logout /> : () => <Redirect to="/" />}>
+                    </Route>
+                    <Route path="/profile" exact render={isLogged ? () => <Profile /> : () => <Redirect to="/login" />}>
                     </Route>
                     <Route path='*'>
                       <h2>404</h2>

@@ -28,7 +28,19 @@ const userSurvice = {
             method: 'POST',
             credentials: 'include'
         }).then(res => res.text())
-    }
+    },
+    updateInformation: function (data) {
+        return fetch('http://localhost:9999/api/user/', {
+            body: JSON.stringify(data),
+            method: 'PUT',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            credentials: 'include'
+        }).then(res => res.status === 200
+            ? res.json()
+            : res.text().then(text => Promise.reject(text)));
+    },
 
 }
 export default userSurvice

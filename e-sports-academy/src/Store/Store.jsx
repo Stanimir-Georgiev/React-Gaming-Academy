@@ -1,5 +1,5 @@
 import React from 'react';
-import { ActionTypes, loginSuccess, loginFailure, logoutSuccess, logoutFailure, registerSuccess, registerFailure } from './actions';
+import { ActionTypes, loginSuccess, loginFailure, logoutSuccess, logoutFailure, registerSuccess, registerFailure, updateSuccess, updateFailure } from './actions';
 import userService from '../services/user-service';
 
 export const StoreContext = React.createContext({});
@@ -18,6 +18,10 @@ const asyncActionMap = {
     ({ user }) => userService.login(user)
       .then(user => loginSuccess(user))
       .catch(error => loginFailure(error)),
+  [ActionTypes.Update]:
+    ({ user }) => userService.updateInformation(user)
+      .then(user => updateSuccess(user))
+      .catch(error => updateFailure(error)),
   [ActionTypes.Logout]:
     () => userService.logout()
       .then(() => logoutSuccess())
@@ -25,17 +29,24 @@ const asyncActionMap = {
   [ActionTypes.Register]:
     ({ user }) => userService.register(user)
       .then(user => registerSuccess(user))
-      .catch(error => registerFailure(error))
+      .catch(error => registerFailure(error)),
 }
 
 const actionMap = {
   [ActionTypes.Login]: (state) => ({ ...state, error: null }),
   [ActionTypes.LoginSuccess]: (state, { user }) => ({ ...state, user }),
   [ActionTypes.LoginFailure]: (state, { error }) => ({ ...state, error }),
+
+  [ActionTypes.Update]: (state) => ({ ...state, error: null }),
+  [ActionTypes.UpdateSuccess]: (state, { user }) => ({ ...state, user }),
+  [ActionTypes.UpdateFailure]: (state, { error }) => ({ ...state, error }),
+
   [ActionTypes.LogoutSuccess]: (state) => ({ ...state, user: null }),
+
   [ActionTypes.Register]: (state) => ({ ...state, error: null }),
   [ActionTypes.RegisterSuccess]: (state, { user }) => ({ ...state, user }),
-  [ActionTypes.RegisterFailure]: (state, { error }) => ({ ...state, error })
+  [ActionTypes.RegisterFailure]: (state, { error }) => ({ ...state, error }),
+
 }
 
 const storeReducer = (state, action) => {

@@ -23,6 +23,10 @@ const userSchema = new Schema({
         type: mongoose.SchemaTypes.String,
         default: "",
     },
+    imgUrl: {
+        type: mongoose.SchemaTypes.String,
+        default: "http://res.cloudinary.com/drs58tv83/image/upload/v1576121885/t1ceeiokhqija5va8f3s.png"
+    },
     lastName: {
         type: mongoose.SchemaTypes.String,
         default: "",
@@ -30,6 +34,10 @@ const userSchema = new Schema({
     credits: {
         type: mongoose.SchemaTypes.Number,
         default: 0,
+    },
+    description: {
+        type: mongoose.SchemaTypes.String,
+        default: ''
     },
     adminLevel: {
         type: mongoose.SchemaTypes.Number,

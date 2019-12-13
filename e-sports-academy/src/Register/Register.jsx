@@ -1,6 +1,6 @@
 import React from 'react';
 import '../Shared/form.scss';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import logo from '../logo.png';
 import * as yup from 'yup';
 import { useFormControl, getValidationsRunnerForSchema } from '../Shared/form-setter';
@@ -29,6 +29,7 @@ const validationsRunner = getValidationsRunnerForSchema(schema)
 
 const Register = () => {
     const { state, dispatch } = React.useContext(StoreContext)
+    const history = useHistory()
 
     const usernameFormControl = useFormControl('', validations.username);
     const passwordFormControl = useFormControl('', validations.password);

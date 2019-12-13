@@ -8,31 +8,30 @@ const Navigation = () => {
     const isLogged = !!state.user;
     return (
         <nav className="site-nav">
-          {!isLogged &&  <ul>
+            {!isLogged && <ul>
                 <li>
                     < Link to="/login">Login</Link>
                 </li>
-
-
                 <li>
                     < Link to="/register">Register</Link>
                 </li>
             </ul>}
-           {isLogged && <ul>
-                <li>
-                    < Link to="/">Dashboard</Link>
-                </li>  
-                <li>
-                    < Link to="/courses">Courses</Link>
-                </li>  
-                <li>
-                    < Link to="/logout">Logout</Link>
-                </li>
-                <li>
-                    < Link to="/profile">{state.user.username}</Link>
-                </li>
-               
-            </ul>}
+            {isLogged && <div>
+                <ul>
+                    <li>
+                        < Link to="/">Dashboard</Link>
+                    </li>
+                    <li>
+                        < Link to="/courses">Courses</Link>
+                    </li>
+                    <li>
+                        < Link to="/logout">Logout</Link>
+                    </li>
+                </ul>
+                < Link to="/profile">
+                    <img src={state.user.imgUrl} alt="avatar" />
+                </Link>
+            </div>}
         </nav >
     )
 }

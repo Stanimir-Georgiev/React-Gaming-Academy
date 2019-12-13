@@ -9,7 +9,11 @@ export const ActionTypes = {
 
     Logout: Symbol("[AUTH] Logout"),
     LogoutSuccess: Symbol("[AUTH] Logout Success"),
-    LogoutFailure: Symbol("[AUTH] Logout Failure")
+    LogoutFailure: Symbol("[AUTH] Logout Failure"),
+
+    Update: Symbol("[AUTH] Update"),
+    UpdateSuccess: Symbol("[AUTH] Update Success"),
+    UpdateFailure: Symbol("[AUTH] Update Failure"),
   };
   
   export const login = (user) => ({ type: ActionTypes.Login, payload: { user }});
@@ -23,3 +27,7 @@ export const ActionTypes = {
   export const logout = () => ({ type: ActionTypes.Logout, payload: undefined });
   export const logoutFailure = (error) => ({ type: ActionTypes.LogoutFailure, payload: { error }});
   export const logoutSuccess = () => ({ type: ActionTypes.LogoutSuccess, payload: undefined });
+
+  export const update = (user) => ({ type: ActionTypes.Update, payload: { user }});
+  export const updateFailure = (error) => ({ type: ActionTypes.UpdateFailure, payload: { error }});
+  export const updateSuccess = (user) => ({ type: ActionTypes.UpdateSuccess, payload: { user }});

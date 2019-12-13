@@ -6,7 +6,6 @@ module.exports = (app) => {
 
     app.get('/auth', (req, res) => {
         const token = req.cookies[config.authCookieName];
-        console.log(token)
         utils.jwt.verifyToken(token)
             .then(({ id }) => models.User.findById(id))
             .then(user => res.send(user))

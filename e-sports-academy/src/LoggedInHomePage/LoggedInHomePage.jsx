@@ -3,9 +3,12 @@ import './LoggedInHomePage.scss';
 import Header from '../Header/Header';
 import GameNavigation from '../GameNavigation/GameNavigation';
 import Footer from '../Footer/Footer'
-import Course from '../Course/Course'
+import Course from '../Course/Course';
+import { StoreContext } from '../Store/Store'
 
 const LoggedInHomePage = () => {
+    const { state } = React.useContext(StoreContext)
+
     return (
         <React.Fragment>
             <Header />
@@ -14,7 +17,7 @@ const LoggedInHomePage = () => {
                     <GameNavigation />
                     <div className="credits">
                         <h2>Total Credits</h2>
-                        <p>10 credits</p>
+                        <p>{state.user.credits} credits</p>
                     </div>
                 </aside>
                 <main>
