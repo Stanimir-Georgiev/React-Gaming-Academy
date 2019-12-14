@@ -23,7 +23,7 @@ const Courses = () => {
             { courses ?
                 <section className="course-section">
                     <div className="inner-course">
-                        {courses > 0 ? <h2>Course Section</h2> : <h2>There are no courses</h2>}
+                        {courses.length > 0 ? <h2>Course Section</h2> : <h2>There are no courses</h2>}
                         <ul className="courses">
                         {courses.map((course) => <Course key={course._id} imgUrl={course.imgUrl} name={course.name} totalVideos={course.totalVideos} difficulty={course.difficulty} id={course._id} />)}
                         </ul>

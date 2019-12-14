@@ -8,7 +8,8 @@ import Login from './Login/Login';
 import Logout from './Logout/Logout';
 import Profile from './Profile/Profile';
 import Courses from './Course/Courses/Courses'
-import Details from './Course/Details/Details'
+import Details from './Course/Details/Details';
+import EnrollCourse from './Course/EnrollCourse/EnrollCourse'
 import {
   BrowserRouter as Router,
   Switch,
@@ -16,7 +17,7 @@ import {
   Redirect
 } from "react-router-dom";
 import Store, { StoreContext } from "./Store/Store";
-import { loginSuccess, registerSuccess, updateSuccess} from "./Store/actions";
+import { loginSuccess, registerSuccess, updateSuccess } from "./Store/actions";
 import CreateCourse from './Course/CreateCourse/CreateCourse';
 
 
@@ -29,9 +30,9 @@ const Auth = ({ children }) => {
           ? res.json()
           : res.text().then(text => Promise.reject(text))
       )
-      .then((user) => {dispatch(loginSuccess(user)); dispatch(registerSuccess(user)); dispatch(updateSuccess(user))})
+      .then((user) => { dispatch(loginSuccess(user)); dispatch(registerSuccess(user)); dispatch(updateSuccess(user)) })
       .catch(() => {
-        dispatch(loginSuccess(null)); 
+        dispatch(loginSuccess(null));
         dispatch(registerSuccess(null));
         dispatch(updateSuccess(null))
       });
@@ -70,6 +71,8 @@ function App() {
                     <Route path="/courses" exact render={isLogged ? () => <Courses /> : () => <Redirect to="/login" />}>
                     </Route>
                     <Route path="/course/details/:id" exact render={isLogged ? () => <Details /> : () => <Redirect to="/login" />}>
+                    </Route>
+                    <Route path="/course/enroll/:id" exact render={isLogged ? () => <EnrollCourse /> : () => <Redirect to="/login" />}>
                     </Route>
                     <Route path='*'>
                       <h2>404</h2>

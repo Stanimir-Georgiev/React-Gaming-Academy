@@ -42,11 +42,20 @@
         }
     }
     .detail-aside {
-        margin-left: 2em;
         border: 1px solid white;
         padding: 1.5em;
-        padding-top: 6em;
+        padding-top: 2em;
         border-radius: 2em;
+        .detail-actions {
+            a {
+                color: var(--main-gold-color);
+                padding: 0.3em 0.7em;
+                border: 1px solid var(--main-gold-color);
+                font-size: 1.5em;
+            }
+            margin-bottom: 6em;
+            text-align: right;
+        }
         .detail-heading {
             margin-bottom: 2em;
             i {

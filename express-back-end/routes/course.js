@@ -4,6 +4,8 @@ const { auth } = require('../utils');
 
 router.get('/getAll', controllers.course.get.getAll);
 
+router.get('/getEnrolled', auth() , controllers.course.get.getEnrolled);
+
 router.get('/getOne/:id', controllers.course.get.getOne);
 
 

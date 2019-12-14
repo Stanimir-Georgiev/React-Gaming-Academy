@@ -41,6 +41,5 @@ const userSurvice = {
             ? res.json()
             : res.text().then(text => Promise.reject(text)));
     },
-
 }
 export default userSurvice

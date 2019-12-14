@@ -26,6 +26,27 @@ const courseService = {
       },
       credentials: 'include'
     }).then(res => res.json());
-  }
+  },
+  enroll: function (id) {
+    return fetch(`http://localhost:9999/api/course/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      credentials: 'include'
+    }).then(res => res.json());
+  },
+  getEnrolledCourses: function () {
+    return fetch('http://localhost:9999/api/course/getEnrolled', {
+        method: 'GET',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        credentials: 'include'
+    }).then(res => res.status === 200
+        ? res.json()
+        : res.text().then(text => Promise.reject(text)));
+},
+
 }
 export default courseService

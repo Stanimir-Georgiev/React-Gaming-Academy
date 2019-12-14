@@ -50,7 +50,7 @@ const CreateCourse = () => {
             description: descriptionFormControl.value
         }).then(data => {
             courseService.createCourse(data).then(() => {
-                history.push('/')
+                history.push('/courses')
             }).catch((error) => {
                 setServerError(serverError)
             })

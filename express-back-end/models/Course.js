@@ -6,9 +6,13 @@ const courseSchema = new Schema({
     name: {
         type: mongoose.SchemaTypes.String,
         required: [true, "Course name is required!"],
-        unique: [true, "Course name should be unique"],
-        minlength: [5, "Course name should be at least 5 characters"]
     },
+    enrolledUsers: [
+        { 
+            type: mongoose.SchemaTypes.ObjectId,
+            ref: 'User'
+        }
+    ],
     totalVideos: {
         type: mongoose.SchemaTypes.Number,
         default: 0
@@ -30,7 +34,6 @@ const courseSchema = new Schema({
     },
     description: {
         type: mongoose.SchemaTypes.String,
-        minlength: [15, "The description should be at least 15 characters"]
     },
     videos: [
         {

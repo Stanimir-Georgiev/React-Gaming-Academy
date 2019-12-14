@@ -4,12 +4,18 @@ import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
 import courseService from '../../services/course-service';
 import { useParams } from 'react-router'
+import { Link } from 'react-router-dom'
+import { StoreContext } from '../../Store/Store';
 
 
 const Details = () => {
 
+    const { state } = React.useContext(StoreContext);
+
     const [course, setCourse] = React.useState(undefined)
     const { id } = useParams();
+    const enrollPath = `/course/enroll/${id}`;
+    let isEnrolled = false;
 
     React.useEffect(() => {
         courseService.getOne(id).then(res => {
@@ -18,7 +24,12 @@ const Details = () => {
             console.log(error)
         })
     }, [])
-    console.log(course)
+    if (course !== undefined) {
+        if (course.enrolledUsers.includes(state.user._id)) {
+            isEnrolled = true
+        }
+    }
+
     return (
         <React.Fragment>
             <Header />
@@ -37,6 +48,9 @@ const Details = () => {
                             </div>
                         </div>
                         <div className="detail-aside">
+                            <div className="detail-actions">
+                                { !state.user.isAdmin ? (!isEnrolled ? <Link to={enrollPath}>Enroll!</Link> : <Link to="#">Continue</Link>) : (<Link to="#">Manage</Link>) }
+                            </div>
                             <div className="detail-heading">
                                 <h2>{course.name}</h2>
                                 <p>
@@ -46,6 +60,7 @@ const Details = () => {
                                     <i className="fa fa-star"></i>
                                     <i className="fa fa-star"></i>
                                 </p>
+
                             </div>
                             <div className="detail-description">
                                 <h6>Estimated Time</h6>
