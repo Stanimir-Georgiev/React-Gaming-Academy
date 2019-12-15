@@ -52,7 +52,7 @@ const CreateCourse = () => {
             courseService.createCourse(data).then(() => {
                 history.push('/courses')
             }).catch((error) => {
-                setServerError(serverError)
+                setServerError(error)
             })
         }).catch(errors => {
             if (errors.name) { nameFormControl.setErrors(errors.name); }

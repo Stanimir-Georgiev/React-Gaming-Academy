@@ -1,0 +1,105 @@
+.manage-section {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+.manage-wrapper {
+    padding: 2em;
+    margin: 4em;
+    border: 2px solid white;
+    border-radius: 3em;
+    display: flex;
+    justify-content: space-between;
+    .error-div {
+        color: red;
+    }
+    .edit {
+        flex-basis: 40%;
+    }
+    .add-video {
+        flex-basis: 35%;
+        
+        input {
+            margin-bottom: 1em;
+        }
+    }
+    .delete {
+        flex-basis: 20%;   
+        a {
+            margin-top: 1.2em;
+            display: block;
+            width: 85%;
+            background: red;
+            border: 1px solid red;
+            padding: 1em 2em;
+            margin-bottom: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            color: white;
+            &:hover {
+                border: 1px solid red;
+                background: white;
+                color: red;
+            }
+        }
+    }
+    h3 {
+        color: var(--main-gold-color);
+    }
+    
+    form {
+        width: 100%;
+        display: inline-block;
+    
+    h4 {
+        margin-bottom: 1em;
+        color: var(--main-gold-color);
+    }
+    div {
+        margin-bottom: 1em;
+        position: relative;
+    }
+    label {
+        display: block;
+        color: var(--main-blue-color);
+    }
+    input {
+        width: 90%;
+        padding: 0.2em 0.5em;
+        color: var(--main-background-color);
+        border-radius: 0.2em;
+        outline: none;
+        border: 2px solid var(--main-blue-color);
+        &:focus {
+            border: 2px solid var(--main-gold-color);
+        }
+    }
+    textarea {
+        padding: 0.2em 0.5em;
+        width: 90%;
+        border: 2px solid var(--main-blue-color);
+        outline: none;
+        &:focus {
+            border: 2px solid var(--main-gold-color);
+        }
+    }
+    select {
+        width: 90%;
+        padding: 0.2em 0.5em;
+    }
+    button {
+        padding: 1em 2em;
+        background: var(--main-blue-color);
+        color: white;
+        margin-bottom: 1em;
+        font-weight: bold;
+        border: 2px solid var(--main-blue-color);
+        cursor: pointer;
+        &:hover {
+            background: white;
+            color: var(--main-blue-color);
+            border-color: var(--main-blue-color)
+        }
+    }   
+}
+}
+

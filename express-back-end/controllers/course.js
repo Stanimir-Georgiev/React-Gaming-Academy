@@ -28,22 +28,34 @@ module.exports = {
       .catch(next)
   },
 
-  put: (req, res, next) => {
-    const id = req.params.id;
-    const userId = req.user._id
-    models.Course.updateOne({ _id: id }, { $push: { enrolledUsers: userId } })
-      .then((updatedCourse) => {
-        return Promise.all([
-          models.User.updateOne({ _id: userId }, { $push: { enrolledCourses: id } }),
-          models.Course.findOne({ _id: id })
-        ])
-      }).then(([modifiedObj, origamiObj]) => {
-        res.send(origamiObj);
-      })
-      .catch(next);
+  put: {
+    enroll: (req, res, next) => {
+      const id = req.params.id;
+      const userId = req.user._id
+      models.Course.updateOne({ _id: id }, { $push: { enrolledUsers: userId } })
+        .then((updatedCourse) => {
+          return Promise.all([
+            models.User.updateOne({ _id: userId }, { $push: { enrolledCourses: id } }),
+            models.Course.findOne({ _id: id })
+          ])
+        }).then(([modifiedObj, origamiObj]) => {
+          res.send(origamiObj);
+        })
+        .catch(next);
+    },
+    edit: (req, res, next) => {
+      const id = req.params.id
+      const { name, difficulty, game, estimatedTime, imgUrl, description } = req.body;
+      models.Course.findOneAndUpdate({ _id: id }, { name, game, description, difficulty, imgUrl, estimatedTime }, { new: true })
+        .then((updatedCourse) => res.send(updatedCourse)
+        ).catch(next)
+    }
   },
 
   delete: (req, res, next) => {
-
+    const id = req.params.id;
+    models.Course.findByIdAndDelete(id)
+    .then((deletedCourse) => res.send(deletedCourse))
+    .catch(next)
   }
 };

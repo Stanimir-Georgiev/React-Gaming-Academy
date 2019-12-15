@@ -11,7 +11,10 @@ router.get('/getOne/:id', controllers.course.get.getOne);
 
 router.post('/', auth(), controllers.course.post);
 
-router.put('/:id', auth(), controllers.course.put);
+router.put('/enroll/:id', auth(), controllers.course.put.enroll);
+
+router.put('/edit/:id', auth(), controllers.course.put.edit);
+
 
 router.delete('/:id', auth(), controllers.course.delete);
 

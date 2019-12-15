@@ -53,7 +53,6 @@ module.exports = {
 
   put: (req, res, next) => {
     const { firstName, lastName, description, _id, ready, imgUrl} = req.body;
-    console.log(firstName)
     models.User.findOneAndUpdate({_id}, {firstName, lastName, description, ready, imgUrl}, {new:true})
       .then((updatedUser) => res.send(updatedUser)
       ).catch(next)

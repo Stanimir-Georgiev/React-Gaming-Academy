@@ -9,7 +9,8 @@ import Logout from './Logout/Logout';
 import Profile from './Profile/Profile';
 import Courses from './Course/Courses/Courses'
 import Details from './Course/Details/Details';
-import EnrollCourse from './Course/EnrollCourse/EnrollCourse'
+import EnrollCourse from './Course/EnrollCourse/EnrollCourse';
+import ManageCourse from './Course/ManageCourse/ManageCourse';
 import {
   BrowserRouter as Router,
   Switch,
@@ -19,6 +20,7 @@ import {
 import Store, { StoreContext } from "./Store/Store";
 import { loginSuccess, registerSuccess, updateSuccess } from "./Store/actions";
 import CreateCourse from './Course/CreateCourse/CreateCourse';
+import DeleteCourse from './Course/DeleteCourse/DeleteCourse'
 
 
 const Auth = ({ children }) => {
@@ -73,6 +75,10 @@ function App() {
                     <Route path="/course/details/:id" exact render={isLogged ? () => <Details /> : () => <Redirect to="/login" />}>
                     </Route>
                     <Route path="/course/enroll/:id" exact render={isLogged ? () => <EnrollCourse /> : () => <Redirect to="/login" />}>
+                    </Route>
+                    <Route path="/course/manage/:id" exact render={isLogged && state.user.isAdmin ? () => <ManageCourse /> : () => <Redirect to="/" />}>
+                    </Route>
+                    <Route path="/course/delete/:id" exact render={isLogged && state.user.isAdmin ? () => <DeleteCourse /> : () => <Redirect to="/" />}>
                     </Route>
                     <Route path='*'>
                       <h2>404</h2>

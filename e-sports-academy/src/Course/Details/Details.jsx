@@ -16,6 +16,7 @@ const Details = () => {
     const { id } = useParams();
     const enrollPath = `/course/enroll/${id}`;
     let isEnrolled = false;
+    const managePath = `/course/manage/${id}`
 
     React.useEffect(() => {
         courseService.getOne(id).then(res => {
@@ -49,7 +50,7 @@ const Details = () => {
                         </div>
                         <div className="detail-aside">
                             <div className="detail-actions">
-                                { !state.user.isAdmin ? (!isEnrolled ? <Link to={enrollPath}>Enroll!</Link> : <Link to="#">Continue</Link>) : (<Link to="#">Manage</Link>) }
+                                { !state.user.isAdmin ? (!isEnrolled ? <Link to={enrollPath}>Enroll!</Link> : <Link to="#">Continue</Link>) : (<Link to={managePath}>Manage</Link>) }
                             </div>
                             <div className="detail-heading">
                                 <h2>{course.name}</h2>
